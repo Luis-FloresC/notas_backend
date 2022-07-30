@@ -59,7 +59,7 @@ mira los [Notas-Backend](https://github.com/Luis-FloresC/notas_backend.git).
 
 ## Autores ✒️
 
-* **David Mendoza** - *Modulo de Vehicul* - [dmendoza2](https://github.com/dmendoza2)
+* **David Mendoza** - *0601-1998-00243* - [dmendoza2](https://github.com/dmendoza2)
 * **Diego Lopez** - *0801-1998-11745* - [Dlopz98](https://github.com/Dlopz98)
 * **Gerson Martinez** - *1501-1999-01715* - [javier8159](https://github.com/javier8159)
 * **José Guillen** - *0801-1999-18261* - [JG20108](https://github.com/JG20108)
