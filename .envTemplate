@@ -1,0 +1,31 @@
+/*Url de acceso a mongo db*/
+MONGODB_URI=
+/*nombre de la base de datos*/
+MONGODB_DB=
+/*Inicializador*/
+MONGODB_SETUP=1
+
+/*Puerto de la api */
+PORT = 3001
+
+/*Tiempo de duracion de token de inicio de sesion 24h*/
+JWT_AGE_SECONDS=86.4
+/*Tiempo de duracion de token de recuperacion de contraseña 8h*/
+JWT_AGE_SECONDS_Reset_Password= 28.8
+/*Api key de acceso para que funcione la api*/
+JWT_SECRET=2i7qzd3qun67h67xg138kl056qgfhob81mo3s541
+
+/*Sitios web que tienen acesso a la api*/
+CORSLIST=http://localhost:3000|http://localhost:3001
+
+/*clave de cliente para uso de la app y api separadas por "|"*/
+APP_API_KEY= sf8tax2sday319ev4kmmfc4io5l7e9x6olray0qi|diwdbt4o0j68r6uk2prb26k2vfu7b9wrwiocm00n
+
+/*Correo de servicio de la empresa*/
+correo_app = correo
+/*servicio a utilizar*/
+correo_servicio = smtp.gmail.com
+/*puerto del servicio*/
+correo_port = 465
+/*contraseña generada*/
+correo_contrasenia = contraseña generada por google para uso de terceros
