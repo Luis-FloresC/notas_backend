@@ -1,0 +1,279 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Notes-Api",
+    "dateExported": "2022-07-25T12:21:07.292Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Notes",
+            "containerId": "",
+            "created": "2022-07-23T15:31:36.940Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "2383ed15-8132-4252-93e3-45f4979d36a7",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2022-07-23T23:33:49.071Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "7da98da4-dbc8-491d-8ec6-23add3486b54",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Obtener notas por usuario",
+            "url": "{{HOST}}/notes/getNotesByUser/{codigo}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-07-23T15:31:19.801Z",
+            "modified": "2022-07-24T01:18:15.131Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "codigo",
+                    "value": "62dc8886328c6fb2b96ac35c",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "e28a64a3-b9c3-4706-9994-9cf8f98cddb7",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "2383ed15-8132-4252-93e3-45f4979d36a7",
+            "name": "SignIn",
+            "url": "{{HOST}}/auth/signIn",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-07-23T23:34:11.390Z",
+            "modified": "2022-07-23T23:47:18.945Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "lua_floresc@unicah.edu"
+                    },
+                    {
+                        "name": "password",
+                        "value": "Luis1234@"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "9455f253-88e0-4cd3-a955-b92729f8710f",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Notas Paginacion",
+            "url": "{{HOST}}/notes/page/{page}/{limit}",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2022-07-25T12:01:11.273Z",
+            "modified": "2022-07-25T12:17:53.786Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": true
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "6acbf871-8fd9-447c-953c-c7fa7e3d1e93",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "2383ed15-8132-4252-93e3-45f4979d36a7",
+            "name": "Login",
+            "url": "{{HOST}}/auth/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2022-07-23T23:50:24.642Z",
+            "modified": "2022-07-23T23:52:17.241Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "lua_floresc@unicah.edu"
+                    },
+                    {
+                        "name": "password",
+                        "value": "Luis1234@"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "39bcb988-66c5-4eaa-bfea-e05160aae23f",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "PorId",
+            "url": "{{HOST}}/notes/porId/{codigo}",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2022-07-24T01:31:46.498Z",
+            "modified": "2022-07-24T01:35:19.601Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "codigo",
+                    "value": "62dc9d78d4a662516c161387",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8c78cf12-cddb-418f-b054-4116eb0a2c93",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "AgregarNota",
+            "url": "{{HOST}}/notes/agregarNota",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-07-24T05:21:03.870Z",
+            "modified": "2022-07-24T05:39:34.643Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "description",
+                        "value": "Insert Hola in notes"
+                    },
+                    {
+                        "name": "keyword",
+                        "value": "note,insert,Hola"
+                    },
+                    {
+                        "name": "title",
+                        "value": "hola"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "e0fae3a1-ddb3-4909-b874-6ba9330c52f3",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Agregar Palbras clave",
+            "url": "{{HOST}}/notes/agregarPalabraClave/{codigo}",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-07-24T13:29:27.280Z",
+            "modified": "2022-07-25T01:24:10.993Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "codigo",
+                    "value": "62dcd9fc9ec9df6c4b7cc57f",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "keyword",
+                        "value": "Hola,note"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "758048f0-f826-430d-85a5-c4fb5e27ab7a",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Modificar",
+            "url": "{{HOST}}/notes/modificarNota/{codigo}",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2022-07-25T02:27:48.993Z",
+            "modified": "2022-07-25T02:37:22.715Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "codigo",
+                    "value": "62dcd9fc9ec9df6c4b7cc57f",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "keyword",
+                        "value": "Hola,note,Prueba 2"
+                    },
+                    {
+                        "name": "title",
+                        "value": "Nota de prueba 2"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Prueba de api "
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "85509ff8-a5e6-4186-9627-ae7dc2831019",
+            "colId": "0ef4d314-7363-4229-a45a-4149b71161de",
+            "containerId": "7d4c5a1f-a1c2-48fa-9436-1265aae2aa1c",
+            "name": "Eliminar",
+            "url": "{{HOST}}/notes/eliminar/{codigo}",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2022-07-25T02:40:05.503Z",
+            "modified": "2022-07-25T02:41:02.539Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "codigo",
+                    "value": "62dcd9fc9ec9df6c4b7cc57f",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "apikey",
+                "value": "{{APIKEY}}"
+            }
+        ],
+        "auth": {
+            "type": "bearer",
+            "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RVc2VyIjp7Il9pZCI6IjYyZGM4ODg2MzI4YzZmYjJiOTZhYzM1YyIsImVtYWlsIjoibHVhX2Zsb3Jlc2NAdW5pY2FoLmVkdSIsIm5vbWJyZSI6IkpvaG4gRG9lIiwiYXZhdGFyIjoiSm9obiIsImVzdGFkbyI6IkFDVCJ9LCJnZW5lcmF0ZWQiOjE2NTg3MTYxNDUwOTIsImlhdCI6MTY1ODcxNjE0NSwiZXhwIjoxNjU4ODAyMTQ1fQ.4PUmKzzdwBACi2px_46ns86ZPQJRi9NZ3_Fx62MCooI"
+        },
+        "tests": [],
+        "envId": "03ea911e-db6a-4154-8306-bd6d3c3cc7bb"
+    }
+}
