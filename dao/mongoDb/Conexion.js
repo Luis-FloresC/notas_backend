@@ -8,9 +8,7 @@ module.exports = class Connection {
   static async getDB() {
     if (this.db === null) {
       const mongoUri = process.env.MONGODB_URI;
-      console.log(mongoUri);
       const mongoDbName = process.env.MONGODB_DB;
-      console.log(mongoDbName);
       var mongoClient = await MongoClient.connect(mongoUri);
       this.db = mongoClient.db(mongoDbName);
       console.log('Conexión:', 'Creando Conexión');

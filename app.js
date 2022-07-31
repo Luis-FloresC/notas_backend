@@ -18,6 +18,7 @@ const corsOptions = {
     }
   }
 }
+
 var apiRouter = require('./routes/api');
 
 var app = express();

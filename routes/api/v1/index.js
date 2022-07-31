@@ -4,6 +4,7 @@ const { authorizer } = require('./Middleware/Autorizador');
 const { jwtAuthorizer } = require('./Middleware/JwtAutorizador');
 
 const SeguridadRoutes = require('./Seguridad');
+const NotasRoutes = require('./Notas');
 
 router.get('/', function (req, res, next) {
   const version = {
@@ -15,5 +16,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.use('/auth',authorizer,SeguridadRoutes);
+router.use('/notes',authorizer,jwtAuthorizer,NotasRoutes);
 
 module.exports = router;
