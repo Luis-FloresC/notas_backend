@@ -1,6 +1,6 @@
 var notes =[];
 
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 10; i++) {
     var notesDoc = {
       title:   `Title Test # ${(i + 1)}`,
       description: `description Test # ${(i + 1)}.`,
