@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { validId, isEmpty,mergeToArray } = require('../Utilidades');
+const { validId, isEmpty, mergeToArray } = require('../Utilidades');
 
 const LibsNotas = require('../../../../libs/Notas');
 const DaoNotas = require('../../../../dao/mongoDb/models/DaoNotas');
@@ -40,7 +40,7 @@ router.get("/getNotesByUser/:codigo", async (req, res) => {
 
 router.get('/page/:page/:limit', async (req, res) => {
   try {
-    const {page, limit} = req.params;
+    const { page, limit } = req.params;
     const _page = parseInt(page);
     const _limit = parseInt(limit);
     const result = await not.getPagedNotes(req.user.jwtUser._id, _page, _limit);
@@ -102,9 +102,9 @@ router.post('/agregarNota', async (req, res) => {
     }
 
     const keywordArray = keyword.split(",");
-    console.log({ keywordArray });
+    
     const newNote = await not.addNote({ title, description, keyword: keywordArray, idUser });
-    return res.status(200).json({resultado:newNote});
+    return res.status(200).json({ resultado: newNote });
   } catch (ex) {
     console.error(ex);
     return res.status(502).json({ error: 'Error al procesar solicitud' });
@@ -136,18 +136,26 @@ router.put('/agregarPalabraClave/:codigo', async (req, res) => {
       });
     }
 
-    const keywordArray = keyword.split(",");
-  
-    keywordArray.forEach(function(value, key) {
-      if(!note.keyword.includes(value)){
-        note.keyword.push(value);
-      }
-     
-    });
-    console.log({...note});
-  
+    let keywordArray = [];
 
-   const updateResult = await not.updateNote({...note,codigo:note._id});
+    if (typeof (keyword) === "string") {
+      keywordArray = keyword.split(",");
+    }
+    else {
+      const KText = keyword.join(",");
+      keywordArray = KText.split(",");
+    }
+
+
+    note.keyword = keywordArray;
+    note.title = title;
+    note.description = description;
+
+  
+    console.log({ ...note });
+
+
+    const updateResult = await not.updateNote({ ...note, codigo: note._id });
 
 
     return res.status(200).json({ resultado: updateResult });
@@ -165,8 +173,8 @@ router.put('/modificarNota/:codigo', async (req, res) => {
     if (!validId(codigo)) {
       return res.status(400).json({ error: 'El codigo debe ser un dígito válido.' });
     }
-    const { title,description,keyword } = req.body;
-
+    const { title, description, keyword } = req.body;
+    console.log(keyword);
     if (isEmpty(keyword)) {
       return res.status(400).json({
         error: 'Se esperaba un valor para la palabras claves...'
@@ -192,22 +200,27 @@ router.put('/modificarNota/:codigo', async (req, res) => {
         error: 'No se encontró ninguna nota con el id'
       });
     }
+    let keywordArray = [];
 
-    const keywordArray = keyword.split(",");
-  
-    keywordArray.forEach(function(value, key) {
-      if(!note.keyword.includes(value)){
-        note.keyword.push(value);
-      }
-     
-    });
-    note.title= title;
-    note.description= description;
-    
-    console.log({...note});
-  
+    if (typeof (keyword) === "string") {
+      keywordArray = keyword.split(",");
+    }
+    else {
+      const KText = keyword.join(",");
+      keywordArray = KText.split(",");
+    }
 
-   const updateResult = await not.updateNote({...note,codigo:note._id});
+
+
+   
+    note.keyword = keywordArray;
+    note.title = title;
+    note.description = description;
+
+    console.log({ ...note });
+
+
+    const updateResult = await not.updateNote({ ...note, codigo: note._id });
 
 
     return res.status(200).json({ resultado: updateResult });
@@ -226,7 +239,7 @@ router.delete('/eliminar/:codigo', async (req, res) => {
       return res.status(400).json({ error: 'El codigo debe ser un dígito válido.' });
     }
 
-    const resultado = await not.deleteNote({codigo});
+    const resultado = await not.deleteNote({ codigo });
 
     if (!resultado) {
       return res.status(404).json({ error: 'Nota no encontrada.' });

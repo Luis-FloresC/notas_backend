@@ -2,7 +2,6 @@ const express =require('express');
 let router = express.Router();
 const Usuario = require('../../../../libs/Usuarios');
 const UsuarioDao = require('../../../../dao/mongoDb/models/DaoUsuarios');
-const {validId,isEmpty,validPassword,isEquals} = require('../Utilidades');
 const servicioCorreo = require('../../../../libs/Seguridad/correo');
 const userDao = new UsuarioDao();
 const user = new Usuario(userDao);
@@ -10,8 +9,8 @@ user.init();
 
 const { jwtSignResetPassword } = require('../../../../libs/Seguridad');
 const { jwtVerify } = require('../../../../libs/Seguridad');
+const {validId,isEmpty,validPassword,isEquals} = require('../Utilidades');
 const {jwtSign} = require('../../../../libs/Seguridad');
-
 
 router.post('/login', async (req, res)=>{
   try {
@@ -134,7 +133,7 @@ router.post('/recoveryPassword', async (req, res) => {
     const { password: passwordDb, created, updated, ...jwtUser } = BuscarEmail;
     const jwtToken = await jwtSignResetPassword({ jwtUser, generated: new Date().getTime() });
     //return res.status(200).json({token: jwtToken});
-    console.log(jwtToken);
+    //console.log(jwtToken);
     await servicioCorreo.sendEmail(req, res, data);
     const updateResult = await user.updatePassword({ codigo: codigo, password: pin, resetToken: jwtToken });
     console.log(updateResult);

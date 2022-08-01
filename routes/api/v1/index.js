@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
+
 const { authorizer } = require('./Middleware/Autorizador');
 const { jwtAuthorizer } = require('./Middleware/JwtAutorizador');
 
+const NotesRoutes = require('./Notas');
 const SeguridadRoutes = require('./Seguridad');
-const NotasRoutes = require('./Notas');
+
 
 router.get('/', function (req, res, next) {
   const version = {
@@ -15,7 +17,8 @@ router.get('/', function (req, res, next) {
   res.status(200).json(version);
 });
 
+
+router.use('/notes',authorizer,jwtAuthorizer, NotesRoutes);
 router.use('/auth',authorizer,SeguridadRoutes);
-router.use('/notes',authorizer,jwtAuthorizer,NotasRoutes);
 
 module.exports = router;

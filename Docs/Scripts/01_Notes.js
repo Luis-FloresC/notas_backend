@@ -1,10 +1,10 @@
 var notes =[];
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 100; i++) {
     var notesDoc = {
-      title:   `Title Test # ${(i + 1)}.`,
+      title:   `Title Test # ${(i + 1)}`,
       description: `description Test # ${(i + 1)}.`,
-      keyword: ['Test'],
+      keyword: [`keyword Test # ${(i + 1)}`],
       idUser: ObjectId('62dc8886328c6fb2b96ac35c'),
       created: new Date().toISOString(),
     };

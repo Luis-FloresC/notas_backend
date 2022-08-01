@@ -16,6 +16,5 @@ module.exports = class Connection {
       console.log('Conexión:', 'Usando Conexión Cacheada');
     }
     return this.db;
-    
   }
 }

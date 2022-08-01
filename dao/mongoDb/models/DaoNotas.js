@@ -30,7 +30,7 @@ module.exports = class DaoNotas extends DaoObject {
         };
         const docsCursor = this.find(query, options);
         const numeroFilas = await docsCursor.count();
-        console.log(docsCursor);
+        //console.log(docsCursor);
        // const filas = await docsCursor.toArray();
         return { numeroFilas };
     }
@@ -44,6 +44,7 @@ module.exports = class DaoNotas extends DaoObject {
           null,
           true
         );
+        
         const totalDocs = await notes.count();
         notes.skip(pageLimit * ( page - 1 ))
         notes.limit(pageLimit);
@@ -59,7 +60,7 @@ module.exports = class DaoNotas extends DaoObject {
 
     async getNotesByUser({ codigo }) {
         const query = { idUser: codigo };
-        console.log({query});
+        
         let options = {
             projection: {title:1, description:1, keyword:1, created:1},
             sort:[["title", 1]]
@@ -74,7 +75,8 @@ module.exports = class DaoNotas extends DaoObject {
     }
 
     insertOne({ title, description, keyword, idUser }) {
-        return super.insertOne({ title, description, keyword, idUser, created: new Date().toISOString() });
+        const id = this.objectId(idUser);
+        return super.insertOne({ title, description, keyword, idUser: id, created: new Date().toISOString() });
     }
 
     updateKeyWord({ keyword, codigo }) {
