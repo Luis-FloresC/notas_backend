@@ -12,8 +12,8 @@ Descargar la Rama de Master y entrar a la terminal en la ruta de la carpeta del 
 
 ### Pre-requisitos 📋
 
-Tener acceso a su cuenta de mongoDb para general el link de conexión
-Restaurar la base de datos que se encuentra en la carpeta Base de Datos/ModelUber.mwb
+Tener acceso a su cuenta de mongoDb para general el link de conexión y crear una base de datos con el nombre "NotesDatabase" y crear 2 colecciones llamadas "Uusarios" y "Notas".
+
 
 luego tenemos que copiar el archivo .env_Template y cambiar su nombre a .env 
 luego configuramos las variables siguientes:
