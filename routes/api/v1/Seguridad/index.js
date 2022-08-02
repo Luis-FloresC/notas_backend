@@ -9,7 +9,7 @@ user.init();
 
 const { jwtSignResetPassword } = require('../../../../libs/Seguridad');
 const { jwtVerify } = require('../../../../libs/Seguridad');
-const {validId,isEmpty,validPassword,isEquals} = require('../Utilidades');
+const {validId,isEmpty,validPassword,isEquals,isEmail} = require('../Utilidades');
 const {jwtSign} = require('../../../../libs/Seguridad');
 
 router.post('/login', async (req, res)=>{
@@ -149,9 +149,16 @@ router.post('/signIn', async (req, res) => {
     const { email = '',
       password = ''
     } = req.body;
+    
     if (isEmpty(email)) {
       return res.status(400).json({
         error: 'Se espera valor de correo'
+      });
+    }
+
+    if (!isEmail(email)) {
+      return res.status(400).json({
+        error: 'Ingrese un email valido'
       });
     }
 

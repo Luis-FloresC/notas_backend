@@ -16,6 +16,14 @@ const isEmpty = (value) => {
     }
 }
 
+const isEmail = (email) => {
+    const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if (emailRegex.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+}
 
 const validPassword = (password) => {
     if (!(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/.test(password))) {
@@ -40,4 +48,4 @@ const mergeToArray = (element, index, array) => {
 }
 
 
-module.exports = { validId, isEmpty, validPassword, isEquals,mergeToArray };
+module.exports = { validId, isEmpty, validPassword, isEquals,mergeToArray ,isEmail};
